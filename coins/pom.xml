@@ -15,7 +15,7 @@
 
 	<groupId>org.nbb</groupId>
 	<artifactId>coins</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<packaging>war</packaging>
 	<name>org.nbb.coins</name>
 
@@ -229,7 +229,7 @@
 	<build>
 		<!-- Maven will append the version to the finalName (which is the name 
 			given to the generated war, and hence the context root) -->
-		<finalName>${project.artifactId}</finalName>
+		<finalName>${artifactId}.${version}</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
@@ -246,6 +246,11 @@
 							<logging-profile>accounts-app-profile</logging-profile>
 						</manifestEntries>
 					</archive>
+    				<modules>
+             			<webModule>
+               				<contextRoot>/cars-root</contextRoot>
+             			</webModule>
+          			</modules>					
 				</configuration>
 			</plugin>
 			<!-- The JBoss AS plugin deploys your war to a local JBoss EAP container -->
